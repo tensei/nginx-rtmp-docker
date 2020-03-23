@@ -1,9 +1,9 @@
 FROM buildpack-deps:stretch
 
-LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
+# LABEL maintainer="Sebastian Ramirez <tiangolo@gmail.com>"
 
 # Versions of Nginx and nginx-rtmp-module to use
-ENV NGINX_VERSION nginx-1.15.0
+ENV NGINX_VERSION nginx-1.17.9
 
 # Install dependencies
 RUN apt-get update && \
@@ -17,8 +17,7 @@ RUN mkdir -p /tmp/build/nginx && \
     tar -zxf ${NGINX_VERSION}.tar.gz
 
 # Download and decompress RTMP module
-RUN mkdir -p /tmp/build/nginx-rtmp-module && \
-    cd /tmp/build && \
+RUN mkdir -p /tmp/build && cd /tmp/build && \
     git clone https://github.com/sergey-dryabzhinsky/nginx-rtmp-module
 
 # Build and install Nginx

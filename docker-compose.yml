@@ -5,6 +5,6 @@ services:
     container_name: nginx-rtmp
     ports:
       - 1935:1935
-    restart: unless-stopped
+    restart: always
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
